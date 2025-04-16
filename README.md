@@ -17,13 +17,48 @@ A API oferece os seguintes endpoints para CRUD (Criar, Ler, Atualizar e Deletar)
 - **GET** `/ingredientes`: Retorna todos os ingredientes.
 - **GET** `/ingrediente/<id>`: Retorna um ingrediente específico pelo id.
 - **POST** `/ingrediente`: Adiciona um novo ingrediente.
-- **PUT** `/ingrediente/<id>`: Atualiza as informações de um ingrediente existente.
+1. Exemplo(JSON):
+   ```bash
+    {
+    "nome": "Farinha de trigo",
+    "unidade": "grama"
+    }
+
+- **PUT** `/ingrediente/<id>`: Atualiza as informações de um ingrediente existente integral ou parcialmente.
+1. Exemplo(JSON):
+   ```bash
+    {
+    "nome": "Farinha integral"
+    }
 - **DELETE** `/ingrediente/<id>`: Exclui um ingrediente.
  
 - **GET** `/receitas`: Retorna todas as receitas.
 - **GET** `/receita/<id>`: Retorna uma receita específica pelo id.
 - **POST** `/receita`: Adiciona uma nova receita.
-- **PUT** `/receita/<id>`: Atualiza as informações de uma receita existente.
+1. Exemplo(JSON):
+   ```bash
+    {
+        "nome": "Panqueca",
+        "modo_preparo": "Misture os ingredientes e frite.",
+        "ingredientes": [
+        { "ingrediente_id": 1, "quantidade": 200 },
+        { "ingrediente_id": 2, "quantidade": 300 }
+        ]
+    }
+
+- **PUT** `/receita/<id>`: Atualiza as informações de uma receita existente(o nome e modo de preparo pode ser mudado livremente, mas os ingredientes toda vez que forem atualizados os antigos serão excluidos, ou seja, sempre será necessário colocar todos novamente).
+1. Exemplo(JSON):
+   ```bash
+    {
+        "nome": "Panqueca de Banana",
+        "modo_preparo": "Bata tudo no liquidificador e frite.",
+        "ingredientes": [
+        { "ingrediente_id": 1, "quantidade": 100 },
+        { "ingrediente_id": 3, "quantidade": 2 }
+        ]
+    }
+
+
 - **DELETE** `/receita/<id>`: Exclui uma receita.
 
 ## Como executar o projeto localmente
