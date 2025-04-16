@@ -221,6 +221,10 @@ def deleta_receita(id):
         print(e)
         return gera_response(400, "receita", {}, "Erro ao deletar receita")
 
+# Criação automática das tabelas
+with app.app_context():
+    db.create_all()
+
 # EXECUÇÃO
 if __name__ == "__main__":
     app.run(debug=True)
