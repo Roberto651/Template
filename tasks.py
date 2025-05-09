@@ -6,24 +6,9 @@ def install(c):
     c.run('pip install -r requirements.txt')
 
 @task
-def lint(c):
-    print("Rodando o linter...")
-    c.run('flake8 .')
-
-@task
-def test(c):
-    print("Executando os testes...")
-    c.run('pytest')
-
-@task
 def run(c):
     print("Rodando o projeto...")
     c.run('python app.py')
-
-@task
-def build(c):
-    print("Criando build...")
-    c.run('python setup.py sdist')
 
 @task
 def clean(c):
